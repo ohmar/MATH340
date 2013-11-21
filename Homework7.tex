@@ -1,0 +1,330 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+%\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+%\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Assignment\ \#7} % Assignment title
+\newcommand{\hmwkDueDate}{Thursday,\ October\ 31$^{st}$,\ 2013} % Due date
+\newcommand{\hmwkClass}{MATH\ 340} % Course/class
+\newcommand{\hmwkClassTime}{11:00am} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{Piryatinska} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Omar Sandoval} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{Monday,\ October\ 28$^{th}$,\ 2013} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\newpage
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------------------------
+%	PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+\begin{homeworkProblem}[Exercise\ 3.6.8]
+Consider the pdf defined by
+\begin{displaymath}
+  f_{Y}(y) = \frac{2}{y^3}, y\ge{2}
+\end{displaymath}
+Show the following:
+\begin{homeworkSection}{(a) $\int^{\infty}_1 f_{Y}(y) \,dy $ = 1} % Section within problem
+\end{homeworkSection}
+\large\problemAnswer{
+\begin{align*}
+	\int_1^\infty f_{Y}(y)\;\mathrm{d}y &= -\tfrac{1}{y^2} \Big|_1^\infty \\
+	&= -\tfrac{1}{\infty^2} + \tfrac{1}{1^2} \\
+	&= 1
+\end{align*}
+}
+\begin{homeworkSection}{(b) $E(Y) = 2$ }
+\large\problemAnswer{
+\begin{align*}
+	E(Y) &= \int_1^\infty y(f_{Y}(y))\;\mathrm{d}y \\
+	&= \int_1^\infty y(\tfrac{2}{y^3})\;\mathrm{d}y \\
+	&= -\tfrac{2}{y^3} \Big|_1^\infty \\
+	&= 2
+\end{align*}
+}
+\end{homeworkSection}
+\begin{homeworkSection}{(c) $ Var(Y) $ is not finite.}
+\large\problemAnswer{
+\begin{align*}
+	E(Y^2) &= \int_1^\infty y^2(f_{Y}(y))\;\mathrm{d}y \\
+	&= \int_1^\infty y^2(\tfrac{2}{y^3})\;\mathrm{d}y \\
+	&= 2ln(y) \Big|_1^\infty \\
+	&= 2ln(\infty) - 2ln(1) \\
+	& \text{So, it is infinite.}
+\end{align*}
+}
+\end{homeworkSection}
+\end{homeworkProblem}
+\clearpage
+%----------------------------------------------------------------------------------------
+%	PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Exercise\ 3.6.9] % Custom section title
+Frankie and Johnny play the following game. Frankie selects a number at random from the
+interval $[a,b]$. Johnny, not knowing Frankie's number, is to pick a second number from 
+that same interval and pay Frankie an amount, $W$, equal to the squared difference between 
+the two $[\text{so } 0 \le W \le (b-a^2)]$. What should be Johnny's strategy if he wants
+to minimize his expected loss?
+\\
+\\
+\problemAnswer{
+We can let $Y$ = Frankie's selection.
+Jonny wants to minimize his expected loss, therefore he needs to choose $k$ so that $E[(Y-k)^2]$ minimized.
+Using 3.6.13;
+\begin{align*}
+	E[(Y-k^2)] &= E[((Y-\mu)+(\mu-k))^2] \\
+	&= E[(Y-\mu)^2] + E[(\mu-k)^2] + 2(\mu-k)E(Y-\mu) \\
+	&= Var(Y) + (\mu-k)^2 \\
+\text{The following is minimized when }k =\mu. \\
+\text{Thus, the minimum occurs when } k = E(Y) = \tfrac{a+b}{2} \\
+\text{ Johnny should pick } \frac{a+b}{2} \text{ to minimize his expected loss}
+\end{align*}
+}
+\end{homeworkProblem}
+\clearpage
+%----------------------------------------------------------------------------------------
+%	PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Exercise\ 3.6.12] % Cusom section title
+Suppose that $Y$ is an exponential random variable with $\lambda$ = 2. Find $P[Y > E(Y) + 2\sqrt{Var(Y)}]$.
+\\
+\\
+\problemAnswer{
+pdf of random variable $Y = f_Y(y) = \lambda(e)^{-\lambda(y)}$. From Exercise 3.6.11.
+\begin{align*}
+	\text{We know the following:} \\
+	E(Y) &= \int_a^b y f_{Y}(y)\;\mathrm{d}y
+	& a \le y \le b \\
+	E(Y^2) &= \int_a^b y^2 f_{Y}(y)\;\mathrm{d}y
+	& a \le y \le b
+\end{align*}
+So;
+\begin{align*}
+	E(Y) &= \int_0^\infty y \lambda(e)^{-\lambda(y)}\;\mathrm{d}y \\
+	&= \lambda \int_0^\infty y(e^{-\lambda(y)}\;\mathrm{d}y \\
+	&= [-ye^{-\lambda(y)}-(-\tfrac{1}{\lambda}e^{-\lambda(y)})] \Big|_0^\infty \\
+	&= \tfrac{1}{\lambda}
+\end{align*}
+We can also say;
+\begin{align*}
+	E(Y^2) &= \int_0^\infty y^2 \lambda(e)^{-\lambda(y)}\;\mathrm{d}y \\
+	&= \lambda \int_0^\infty y^2(e)^{-\lambda(y)}\;\mathrm{d}y \\
+	&= 0 + \int_0^\infty 2y(e)^{-\lambda(y)}\;\mathrm{d}y \\
+	&= \tfrac{2}{\lambda} \int_0^\infty y\lambda(e)^{-\lambda(y)}\;\mathrm{d}y \\
+	&= \tfrac{2}{\lambda}E(Y) = \tfrac{2}{\lambda}\tfrac{1}{\lambda} \\
+	&= \tfrac{2}{\lambda^2}
+\end{align*}
+Now,
+\begin{align*}
+	Var(Y) = E(Y^2) - E(Y)^2 = \frac{2}{\lambda^2}-\frac{1}{\lambda}^2
+	&= \frac{1}{\lambda^2}
+\end{align*}
+When $\lambda = 2$,
+\begin{flalign*}
+	E(Y) = \frac{1}{\lambda} = \frac{1}{2} \\
+	Var(Y) = \frac{1}{\lambda^2} = \frac{1}{2^2} = \frac{1}{4} \\
+	P(Y > E(Y) + 2\sqrt{Var(Y)}) = P(Y > \frac{1}{2} + 2\sqrt{\frac{1}{4}} = P(Y > \frac{3}{2})
+\end{flalign*}
+\begin{align*}
+	P(Y > \frac{3}{2}) &= \int_\frac{3}{2}^\infty 2(e^{-2y})dy 
+	&= 1 - \int_\infty^\frac{3}{2} 2(e^{-2y})dy 
+	&= e^-3
+	&= 0.0498
+\end{align*}
+}
+\end{homeworkProblem}
+\clearpage
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}[Exercise\ 3.6.18]
+Recovering small quantities of calcium in the presence of magnesium can be a difficult problem for an
+analytical chemist. Suppose the amount of calcium Y to be recovered is uniformly distributed between 4 and 7 mg.
+
+The amount of calcium recovered by one method is the random variable,\\
+
+$W_1 = 0.2281 + (0.9948)Y+E_1$\\
+
+where the error term $E_1$ has mean 0 and variance 0.0427 and is independent of Y.\\
+
+A second procedure has random variable,\\
+
+$W_2 = -0.0748 + (1.0024)Y+E_2$\\
+
+where the error term $E_2$ has mean 0 and variance 0.0159 and is independent of Y.\\
+
+The better technique should have a mean as close as possible to the mean of $Y(=5.5)$ and a variance as small as
+possible. Compare the two methods on the basis of mean and variance.
+\\
+\problemAnswer{
+\begin{align*}
+	E(Y^2) &= 31\\
+	Var(Y) &= E(Y^2) - E(Y)^2\\
+	&= 31-30.25 \\
+	&= .75\\\\
+	E(W_1)&= E(0.2281+(0.9948)Y+E_1)\\
+	&= 0.9948(E(Y) \\
+	&= 5.47\\\\
+	Var(W_1) &= Var(0.2281+(0.9948)Y+E_1)\\
+	&= (0.9948)^2Var(Y)+Var(E)\\
+	&= (0.9948)^2(0.75) + 0.0427\\
+	&= 0.7849\\\\
+	E(W_2) &= E(-0.0748+(1.0024)Y+E_2) \\
+	&= 1.0024(5.5)\\
+	&= 5.5132\\\\
+	Var(W_2) &= Var(-0.0748 + 1.0024(Y) + E_2) \\
+	&= (1.0024)^2(0.75)+0.0159 \\
+	&=  0.7695
+\end{align*}
+So, r.v. $W_2$ has a mean 5.51 which is close to the mean, 5.5.\\
+Variance is also smaller than other r.v. $W_1$. Therefore, second procedure is better.
+}
+\end{homeworkProblem}
+%----------------------------------------------------------------------------------------
+%	PROBLEM 5
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}[Exercise\ 3.6.20]
+Find the coefficient of skewness for an exponential random variable having the pdf,\\
+$f_{Y}(y)=e^{-y}, y > 0$
+\\
+\\
+\problemAnswer{
+$\mu = 1$ and $\sigma = 1$\\
+...
+}
+\end{homeworkProblem}
+\clearpage
+%----------------------------------------------------------------------------------------
+%	PROBLEM 6
+%----------------------------------------------------------------------------------------
+\begin{homeworkProblem}[Exercise\ 3.6.22]
+Suppose $W$ is a random variable for which $E[(W-\mu)^3]=10$ and $E(W^3)=4$.
+Is it possible that $\mu=2$?
+\problemAnswer{
+Given: $E[(W-\mu)^3]=10$. Substituting $\mu = 2$ gives us the following;
+\begin{align*}
+	10 = E[(W-2)^3]\\
+	= \sum_{j=0}^{3}\dbinom{3}{j}E(W^j)(-2)^{3-j}\\
+	= \frac{3!}{0!(3-0)!}E(W^0)(-2)^{3-0} + \frac{3!}{1!(3-1)!}E(W^1)(-2)^{3-1}\\
+	 + \frac{3!}{2!(3-2)!}E(W^2)(-2)^{3-2}+ \frac{3!}{3!(3-3)!}E(W^3)(-2)^{3-3}\\
+	= E(W^2) = \frac{5}{3}\\
+	\frac{5}{3}-2^2 < 0.
+\end{align*}
+Thus, $\mu=2$ is not possible.
+}
+\end{homeworkProblem}
+%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------%----------------------------------------------------------------------------------------
+%	PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\end{document}
